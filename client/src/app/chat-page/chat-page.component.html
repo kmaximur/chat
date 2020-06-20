@@ -1,0 +1,32 @@
+<div
+  class="card chat-container"
+>
+  <div class="card-content">
+    <span class="card-title">Чат с администратором</span>
+    <div id="chatMessages" class="chatMessages">
+      <div *ngFor="let mes of messages">
+        <div [ngClass]="mes.admin ? 'loginAdmin' : 'loginUser'">
+          {{mes.login}}
+        </div>
+        <div [ngClass]="mes.admin ? 'textAdmin' : 'textUser'">
+          {{mes.text}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-action card-footer">
+    <div class="input-field footer-input">
+      <input id="message" type="text" [(ngModel)]="userMessage" (keydown.enter)="sendMessage()">
+      <label for="message">Message:</label>
+    </div>
+    <div class="footer-button">
+      <button
+        (click)="sendMessage()"
+        [disabled]="userMessage === ''"
+        class="modal-action btn waves-effect"
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</div>

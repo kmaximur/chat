@@ -1,0 +1,35 @@
+<div class="filter">
+  <div class="input-field filterText">
+    <input id="filterText" type="text" [(ngModel)]="filterArgs.filterText">
+    <label for="filterText">Filter:</label>
+  </div>
+  <div class="filterCheckbox">
+    <label>
+      <input name="group1" value="All" type="radio" [(ngModel)]="filterArgs.filterActive"/>
+      <span>All</span>
+    </label>
+    <label style="margin-left: 15px">
+      <input name="group1" value="Active" type="radio" [(ngModel)]="filterArgs.filterActive"/>
+      <span>Active</span>
+    </label>
+    <label style="margin-left: 15px">
+      <input name="group1" value="NoActive" type="radio" [(ngModel)]="filterArgs.filterActive"/>
+      <span>No active</span>
+    </label>
+  </div>
+</div>
+<div id="sessionsGrid" class="list-group">
+  <div *ngFor="let session of sessions | filter:filterArgs"
+       class="list-group-item"
+       [ngClass]="[session.active ? 'active':'', session.opened ? 'opened':'']"
+       (click)="openChat(session.login)">
+    <p class="cardTextLogin">{{session.login}}</p>
+    <p class="cardTextName">{{session.sirname}} {{session.name}}</p>
+  </div>
+</div>
+<div *ngFor="let openedChat of openedChats">
+  <app-admin-chat-window
+    [chat]="openedChat"
+    (dataChanged)="dataFromWindowChat($event)"
+  ></app-admin-chat-window>
+</div>

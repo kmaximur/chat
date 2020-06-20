@@ -1,0 +1,34 @@
+<div
+  class="card chat-container"
+>
+  <div class="card-content">
+    <a (click)="sendToParent()" class="closeBut btn-floating btn-small waves-effect waves-light red"><i
+      class="material-icons" style="font-style: normal">X</i></a>
+    <span class="card-title">Чат с {{chat.room}}</span>
+    <div id="chatMessages" class="chatMessages">
+      <div *ngFor="let mes of chat.messages">
+        <div [ngClass]="!mes.admin ? 'loginAdmin' : 'loginUser'">
+          {{mes.login}}
+        </div>
+        <div [ngClass]="!mes.admin ? 'textAdmin' : 'textUser'">
+          {{mes.text}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-action card-footer">
+    <div class="input-field footer-input">
+      <input id="message" type="text" [(ngModel)]="userMessage" (keydown.enter)="sendMessage()">
+      <label for="message">Message:</label>
+    </div>
+    <div class="footer-button">
+      <button
+        (click)="sendMessage()"
+        [disabled]="userMessage === ''"
+        class="modal-action btn waves-effect"
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</div>

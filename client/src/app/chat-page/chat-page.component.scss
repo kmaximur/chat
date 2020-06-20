@@ -1,0 +1,61 @@
+.chat-container {
+  width: 40%;
+  height: 80%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.chatMessages {
+  position: absolute;
+  width: calc(100% - 50px);
+  top: 70px;
+  height: calc(100% - 170px);
+  overflow-y: scroll;
+}
+.card-title {
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  height: 70px;
+}
+.card-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 90px;
+}
+.footer-button {
+  width: 70px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.footer-input {
+  width: calc(100% - 80px);
+  float: left;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.loginAdmin {
+  text-align: right;
+  font-style: italic;
+  font-size: 11px;
+}
+.loginUser {
+  text-align: left;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 11px;
+}
+.textAdmin {
+  text-align: right;
+  font-size: 14px;
+}
+.textUser {
+  text-align: left;
+  font-size: 14px;
+}
