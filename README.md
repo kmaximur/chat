@@ -4,4 +4,4 @@ Admin login: admin
 
 Admin password: admin
 
-Stack: mySQL, node.js, redis, angular9
+Stack: mySQL, node.js, redis, socket.io, angular9
